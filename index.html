@@ -2,20 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title of the document</title>
+    <title>Merge and Sort Range Segments</title>
+    <link rel="stylesheet" href="slider/css/style.css">
 </head>
 
 <body>
-Content of the document......
-    <script type="text/javascript" src="js/segments.js"></script>
-<script type="text/javascript">
-  var arr2 = [[10,12],[7,8],[0,1],[1,5],[-8,-5], [-4,-3]];
-  var arr3 = mergeArray(arr2);
-  console.log("-------------");
-  arr3.forEach(function(item) {
-  	console.log(item);
-  });
-  console.log("-------------");
-</script>
+
+<div ng-app="slider">
+  <div ng-controller="Ctrl as ctrl" class="main">
+    <h2>Line Segments Challenge</h2>
+    <p>Use the range picker to add a series of line segments. Click on the buttons
+      to see the computed result.
+    </p>
+    <p>
+      [{{x1 = probs[0].p * 100 -50}} , {{x2 = (probs[2].p * -1 + 1) * 100 -50}}]
+    </p>
+    <slider model="probs" property="p" step=".01"></slider>
+    <p>
+      <input type="button" ng-click="addSegment()" value="Add Segment">
+      <input type="button" ng-click="sort()" value="Sort">
+      <input type="button" ng-click="merge()" value="Merge">
+      <input type="button" ng-click="mergeAndSort()" value="Merge And Sort">
+      <input type="button" ng-click="resetAndClear()" value="Reset">
+    </p>
+  </div>
+
+  <canvas id="segments" width="500" height="600" style="border:1px solid #000000;">
+  </canvas>
+  <canvas id="merged" width="500" height="600" style="border:1px solid #000000;">
+  </canvas>
+
+</div>
+
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js'></script>
+  <script src="slider/js/index.js"></script>
 </body>
 </html>
